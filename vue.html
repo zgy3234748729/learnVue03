@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chat">
+      <!-- vue中的模板指令，v-model -->
+      请输入:<input v-model="question" />
+      
+      <!-- vue时间绑定  TODO:html不是本来就能绑定函数 -->   
+      <button v-on:click="handleClick">点击获取内容</button>
+      <!-- 插值表达式 -->
+      <div>展示结果：<span>{{result}}</span></div>
+    </div>
+
+    <script type="module">
+      import { createApp, ref, reactive } from "vue";
+
+      const app = createApp({
+        setup() {
+          // 1.正常业务逻辑
+          // 创建响应式变量(基础数据类型用ref，对象数据类型用reactive)
+          const question = ref('');
+          const result = ref('');
+
+          function handleClick() {
+            console.log('hahaha')
+            // 基础数据类型取运算值必须.value，绑定值不需要
+            result.value = question.value;
+          }
+
+          // 2.需要在模板中绑定的方法和变量
+          return {
+            question,
+            result,
+            handleClick
+          };
+        }
+      });
+
+      // 挂载
+      app.mount("#chat");
+    </script>
+  </body>
+</html>
