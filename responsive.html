@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    请输入：<input id="question" />
+    <input id="second" />
+    <button id="btn">点击获取内容</button>
+    <div>展示结果：<span id='result'></span></div>
+
+    <script>
+        // 1.获取元素
+        const questionEl = document.getElementById('question')
+        const resultEl = document.getElementById('result')
+
+        function handleClick(e) {
+            const val = e.target.value
+
+        }
+        questionEl.addEventListener('input', handleClick)
+
+    </script>
+</body>
+</html>
